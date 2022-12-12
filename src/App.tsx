@@ -1,9 +1,10 @@
 import './App.css'
 
 function App() {
+  let a
   return (
     <div className="App">
-      <div>2</div>
+      <div></div>
     </div>
   )
 }
