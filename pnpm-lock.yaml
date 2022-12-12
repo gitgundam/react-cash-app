@@ -5,6 +5,7 @@ specifiers:
   '@types/react': ^18.0.26
   '@types/react-dom': ^18.0.9
   '@vitejs/plugin-react-swc': ^3.0.0
+  czg: ^1.4.1
   eslint: ^8.29.0
   react: ^18.2.0
   react-dom: ^18.2.0
@@ -12,6 +13,7 @@ specifiers:
   vite: ^4.0.0
 
 dependencies:
+  czg: registry.npmmirror.com/czg/1.4.1
   react: registry.npmmirror.com/react/18.2.0
   react-dom: registry.npmmirror.com/react-dom/18.2.0_react@18.2.0
 
@@ -1113,6 +1115,13 @@ packages:
     name: csstype
     version: 3.1.1
     dev: true
+
+  registry.npmmirror.com/czg/1.4.1:
+    resolution: {integrity: sha512-ZjK46yrHgRbypfKAzv8D/UIWiz3BgGfO0cSPAGpk4VO9FmJ3tqaLqelrNyiVjHqOyg1dOi8hoxBHdrdvwa1eaQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/czg/-/czg-1.4.1.tgz}
+    name: czg
+    version: 1.4.1
+    hasBin: true
+    dev: false
 
   registry.npmmirror.com/debug/2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/debug/-/debug-2.6.9.tgz}
