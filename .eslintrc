@@ -1,3 +1,9 @@
 {
-	"extends": "@antfu"
+	"extends": "@antfu",
+	"rules": {
+		"@typescript-eslint/no-use-before-define": "off",
+		"@typescript-eslint/comma-dangle": "off",
+		"no-console": "off",
+		"no-trailing-spaces": "off"
+	}
 }
