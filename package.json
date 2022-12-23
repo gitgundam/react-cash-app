@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "commit": "czg emoji",
@@ -30,8 +30,11 @@
     "czg": "^1.4.1",
     "eslint": "^8.29.0",
     "husky": "^8.0.2",
+    "i": "^0.3.7",
     "lint-staged": "^13.1.0",
+    "npm": "^9.2.0",
     "typescript": "^4.9.3",
+    "unocss-preset-rem-to-vw": "^1.0.0",
     "vite": "^4.0.0"
   },
   "config": {

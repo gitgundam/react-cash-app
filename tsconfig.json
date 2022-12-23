@@ -28,7 +28,7 @@
   },
   "include": [
     "src"
-  ],
+, "remToPx.ts"  ],
   "references": [
     {
       "path": "./tsconfig.node.json"

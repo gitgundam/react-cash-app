@@ -5,6 +5,7 @@ import Unocss from 'unocss/vite'
 import presetAttributify from '@unocss/preset-attributify'
 import transformerAttributifyJsx from '@unocss/transformer-attributify-jsx'
 import presetWind from '@unocss/preset-wind'
+import presetRemToVw from 'unocss-preset-rem-to-vw'
 
 export default defineConfig({
   base: './',
@@ -18,7 +19,8 @@ export default defineConfig({
     Unocss({
       presets: [
         presetAttributify({ /* options */ }),
-        presetWind()
+        presetWind(),
+        presetRemToVw()
       ],
       transformers: [
         transformerAttributifyJsx(), // <--

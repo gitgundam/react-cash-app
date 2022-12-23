@@ -4,6 +4,11 @@
 		"@typescript-eslint/no-use-before-define": "off",
 		"@typescript-eslint/comma-dangle": "off",
 		"no-console": "off",
-		"no-trailing-spaces": "off"
+		"no-trailing-spaces": "off",
+		"antfu/if-newline": "off",
+		"curly": [
+			"error",
+			"multi"
+		]
 	}
 }
