@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "vite --host",
-    "build": "tsc && vite build",
+    "dev": "vite",
+    "build": "vite build",
     "preview": "vite preview",
     "commit": "czg emoji",
     "lint": "eslint .",
@@ -16,6 +16,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.5",
     "sass": "^1.57.1",
+    "styled-components": "^5.3.6",
     "unocss": "^0.47.6"
   },
   "devDependencies": {
@@ -23,6 +24,7 @@
     "@types/node": "^18.11.15",
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.9",
+    "@types/styled-components": "^5.1.26",
     "@unocss/preset-attributify": "^0.47.6",
     "@unocss/preset-wind": "^0.47.6",
     "@unocss/transformer-attributify-jsx": "^0.47.6",

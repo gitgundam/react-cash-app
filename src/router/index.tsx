@@ -1,6 +1,7 @@
 import type { RouteObject } from 'react-router-dom'
 import { Outlet, createBrowserRouter } from 'react-router-dom'
 import Welcome from '@/views/welcome'
+import Demo from '@/views/demo'
 
 const RouteObjectList: RouteObject[] = [
   {
@@ -14,7 +15,7 @@ const RouteObjectList: RouteObject[] = [
       },
       {
         path: '/b2',
-        element: <div className=''>321</div>,
+        element: <Demo/>,
       },
     ]
     

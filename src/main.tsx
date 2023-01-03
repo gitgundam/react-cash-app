@@ -13,9 +13,9 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   </React.StrictMode>
 )
 
-window.addEventListener('touchstart', (e: TouchEvent) => {
-  e.preventDefault()
-}, { passive: false })
-window.addEventListener('touchmove', (e: TouchEvent) => {
-  e.preventDefault()
-}, { passive: false })
+// window.addEventListener('touchstart', (e: TouchEvent) => {
+//   e.preventDefault()
+// }, { passive: false })
+// window.addEventListener('touchmove', (e: TouchEvent) => {
+//   e.preventDefault()
+// }, { passive: false })

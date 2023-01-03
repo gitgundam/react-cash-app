@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
-import styles from './index.css'
+import './index.css'
 
-const Carousel = ({ children, selectedIndex = 1 }) => {
+const Carousel = ({ children, selectedIndex = 1 }: any) => {
   // 当切换的时候，改变的就是当前位置状态
   // 所以定义当前位置,可以通过传入的selectedIndex来控制最开始显示第几个轮播图,默认从1开始
   const [active, setActive] = useState(selectedIndex)
@@ -35,23 +35,23 @@ const Carousel = ({ children, selectedIndex = 1 }) => {
   }
     
   return (
-        <div className={style.carousel}>
+        <div className={'carousel'}>
             <div 
                 ref={container}
-                className={styles.container}>
+                className={'container'}>
                 {
                     React.Children.map(children, (child, index) => {
                       return (
                             <div 
                                 style={{ left: index * SCREEN_WIDTH }}
-                                className={styles.items}>{child}</div>
+                                className={'items'}>{child}</div>
                       )
                     })
                 }
             </div>
             <div>
-                <div onClick={handlePrev} className={styles.buttonLeft}>Left</div>
-                <div onClick={handleNext} className={styles.buttonRight}>Right</div>
+                <div onClick={handlePrev} className={'buttonLeft'}>Left</div>
+                <div onClick={handleNext} className={'buttonRight'}>Right</div>
             </div>
         </div>
   )

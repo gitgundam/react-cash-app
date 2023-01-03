@@ -1,34 +1,67 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
+import styled from 'styled-components'
 import { useSwiper } from './hooks/useSwiper'
+import { useResizeObserver } from '@/hooks/useResizeObserver'
 
-const list = [1, 2, 3, 4]
+const list = [1, 2, 3, 4, 5]
 const Welcome = () => {
   const welcome = useRef<HTMLElement | null>(null)
-  const { direction, dx, aaa } = useSwiper(welcome)
-  const [width, setWidth] = useState(0) 
+  const [active, setActive] = useState(0)
+  const [width, setWidth] = useState(0)
+  const [isAnimation, setIsAnimation] = useState(false)
+  const { direction, dx, mx } = useSwiper(welcome)
+  
   useEffect(() => {
-    setWidth(welcome?.current?.clientWidth)
+    setTransition()
+  }, [active])
+  
+  useEffect(() => {
+    setDomWidth()
   }, [])
-  const [x, setX] = useState(0)
-  useEffect(() => { 
-    if (!welcome.current) return
-    console.log(aaa)
-    setX(aaa + x)
-    // console.log(x)
-    welcome.current.style.transform = `translate3d(${x}px, 0, 0)`
-  }, [dx])
+
+  useResizeObserver(
+    welcome,
+    () => { setDomWidth() })
+    
+  const setDomWidth = () => { 
+    setWidth(welcome.current ? welcome.current?.clientWidth : 0)
+  }
+
+  const setTransition = () => {
+    const distance = active * width
+    if (welcome.current) welcome.current.style.transform = `translate3d(${-distance}px, 0, 0)`
+  }
+
+  const hangdleActive = (index: number) => {
+    if (isAnimation === true) return 
+    // setIsAnimation(true)
+    setActive(index)
+  }
+  const next = () => { 
+    hangdleActive(active === list.length - 1 ? 0 : active + 1)
+  }
+  
+  const pre = () => {
+    hangdleActive(active === 0 ? list.length - 1 : active - 1)
+  }
+
   return (
-    <div className='border  h-100vh flex flex-col' bg="#3B4054" >
-      <header h-20px ml-10 mr-10></header>
-      <main relative flex-1 ref={welcome}>
-        {list.map((item, index: number) =>
-        <div absolute border w-100vw h="100%" style={{ left: width * index }} key={index}>{item}</div>)}
+    <div h-100vh flex flex-col bg-blue>
+      {active}
+      <header h-20px ></header>
+      <main ref={welcome} flex-1 transition-all-300 border>
+        {list.map((item, index) =>
+         <div absolute h="100%" style={{ left: index * width, width }} key={index}>{item}</div>)}
       </main>
-      <footer m-8px>
-        {dx}/
-      </footer>
+       <div flex justify-between>
+        <button onClick={pre}>-</button>
+      <button onClick={next}>+</button>
+      </div>
+      <footer m-8px>{mx}{direction}</footer>
+
     </div>
   )
 }
 
 export default Welcome
+
