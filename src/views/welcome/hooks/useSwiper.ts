@@ -1,7 +1,7 @@
 import type { MutableRefObject } from 'react'
 import { useEffect, useMemo, useRef, useState } from 'react'
 type Direction = 'left' | 'right' | ''
-type UseSwiper = (dom: MutableRefObject<HTMLElement | null>) => { direction: Direction; mx: number } 
+type UseSwiper = (dom: MutableRefObject<HTMLElement | null>) => { direction: Direction; mx: number;type: string } 
 
 export const useSwiper: UseSwiper = (dom) => {
   const origin = useRef(0)

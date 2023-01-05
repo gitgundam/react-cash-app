@@ -10,8 +10,7 @@ const RouteObjectList: RouteObject[] = [
     children: [
       {
         index: true,
-        // element: <Welcome/>,
-        element: <div>123</div>,
+        element: <Welcome/>,
       },
       {
         path: '/xx',
@@ -26,3 +25,4 @@ const RouteObjectList: RouteObject[] = [
   },
 ]
 export const routeList = createHashRouter(RouteObjectList)
+
