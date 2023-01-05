@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "deploy": "bash bin/build.sh",
     "preview": "vite preview",
     "commit": "czg emoji",
     "lint": "eslint .",

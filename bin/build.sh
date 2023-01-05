@@ -20,3 +20,5 @@ git branch -M master
 git push -f origin master
 
 cd -
+
+clear
