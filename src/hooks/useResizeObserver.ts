@@ -1,13 +1,14 @@
 import type { MutableRefObject } from 'react'
-import { useEffect } from 'react'
+import { useLayoutEffect } from 'react'
 export const useResizeObserver = (dom: MutableRefObject<HTMLElement | null>, callback: () => void) => {
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!dom.current) return 
     const resizeObserver = new ResizeObserver(() => {
       callback()
-    // setTransition()
     })
     resizeObserver.observe(dom.current)
-    // return () => resizeObserver.unobserve
-  })
+    return () => {
+      if (dom.current) resizeObserver.unobserve(dom.current) 
+    }
+  }, [])
 }
