@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useSwiper } from './hooks/useSwiper'
 import { useResizeObserver } from '@/hooks/useResizeObserver'
 
@@ -9,7 +9,6 @@ const Welcome = () => {
   const [width, setWidth] = useState(0)
   const [isAnimation, setIsAnimation] = useState(false)
   const { direction, mx, type } = useSwiper(welcome)
-  const a = useMemo(() => mx, [mx])
 
   useEffect(() => {
     setTransition()
@@ -76,7 +75,7 @@ const Welcome = () => {
   })
 
   return (
-    <div h-100vh flex flex-col bg-blue>
+    <div h-100vh flex flex-col bg-blue-2>
       <header h-20px ></header>
       <main ref={welcome} flex-1 transition-all-300 border border-red flex>
         {isFirst()}
@@ -85,7 +84,7 @@ const Welcome = () => {
         <button onClick={pre}>-</button>
       <button onClick={next}>+</button>
       </div>
-      <footer m-8px>{a}{direction}</footer>
+      <footer m-8px>{direction}</footer>
 
     </div>
   )

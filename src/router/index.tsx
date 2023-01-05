@@ -1,21 +1,21 @@
 import type { RouteObject } from 'react-router-dom'
-import { Outlet, createBrowserRouter } from 'react-router-dom'
+import { Outlet, createHashRouter } from 'react-router-dom'
 import Welcome from '@/views/welcome'
-import Demo from '@/views/demo'
 
 const RouteObjectList: RouteObject[] = [
   {
     path: '/',
     element: <Outlet/>,
-    errorElement: <div>error</div>,
+    errorElement: <div>errorerror</div>,
     children: [
       {
         index: true,
-        element: <Welcome/>,
+        // element: <Welcome/>,
+        element: <div>123</div>,
       },
       {
-        path: '/b2',
-        element: <Demo/>,
+        path: '/xx',
+        element: <Welcome/>,
       },
     ]
     
@@ -25,4 +25,4 @@ const RouteObjectList: RouteObject[] = [
     element: <div>123</div>,
   },
 ]
-export const routeList = createBrowserRouter(RouteObjectList)
+export const routeList = createHashRouter(RouteObjectList)

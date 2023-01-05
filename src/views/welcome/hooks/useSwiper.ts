@@ -37,9 +37,9 @@ export const useSwiper: UseSwiper = (dom) => {
   }
   
   useEffect(() => {
-    dom.current?.addEventListener('touchstart', touchStart)
-    dom.current?.addEventListener('touchmove', touchMove)
-    dom.current?.addEventListener('touchend', touchEnd)
+    dom.current?.addEventListener('touchstart', touchStart, { passive: true })
+    dom.current?.addEventListener('touchmove', touchMove, { passive: true })
+    dom.current?.addEventListener('touchend', touchEnd, { passive: true })
     return () => {
       dom.current?.removeEventListener('touchstart', touchStart)
       dom.current?.removeEventListener('touchmove', touchMove)
