@@ -1,27 +1,19 @@
 import type { RouteObject } from 'react-router-dom'
-import { Outlet, createHashRouter } from 'react-router-dom'
+import { createHashRouter } from 'react-router-dom'
+
+import { welcomeRoutes } from './welcomeRoutes'
 import Welcome from '@/views/welcome'
 
 const RouteObjectList: RouteObject[] = [
   {
     path: '/',
-    element: <Outlet/>,
+    element: <div>main</div>,
     errorElement: <div>errorerror</div>,
-    children: [
-      {
-        index: true,
-        element: <Welcome/>,
-      },
-      {
-        path: '/xx',
-        element: <Welcome/>,
-      },
-    ]
-    
   },
   {
-    path: '/a',
-    element: <div>123</div>,
+    path: '/welcome',
+    element: <Welcome/>,
+    children: welcomeRoutes
   },
 ]
 export const routeList = createHashRouter(RouteObjectList)

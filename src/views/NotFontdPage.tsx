@@ -2,6 +2,9 @@ import React from 'react'
 
 export const NotFontdPage = () => {
   return (
-    <div>index</div>
+    <div>
+      <div>12</div>
+    </div>
   )
 }
+w

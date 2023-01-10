@@ -1,13 +1,15 @@
 import type { FC, ReactElement } from 'react'
 import React, { useEffect, useRef, useState } from 'react'
+import Pager from './Pager'
 import { useResizeObserver } from '@/hooks/useResizeObserver'
 import { useSwiper } from '@/views/welcome/hooks/useSwiper'
 
 interface Props {
   children: ReactElement[]
   selectedIndex?: number
+  onSwiper?: (e: any) => void
 }
-const Swiper: FC<Props> = ({ children, selectedIndex = 0 }) => {
+const Swiper: FC<Props> = ({ children, selectedIndex = 0, onSwiper }) => {
   const dom = useRef<HTMLElement | null>(null)
   const [active, setActive] = useState(selectedIndex)
   const [width, setWidth] = useState(0)
@@ -20,9 +22,13 @@ const Swiper: FC<Props> = ({ children, selectedIndex = 0 }) => {
     () => { 
       setDomWidth() 
     })
-    
+  
   useEffect(() => {
     setTransition()
+    onSwiper({
+      index: active,
+      isEnd: active === children.length - 1
+    })
   }, [active])
   
   useEffect(() => {
@@ -38,7 +44,6 @@ const Swiper: FC<Props> = ({ children, selectedIndex = 0 }) => {
       setTransition(0)
       return
     }
-    
     setTransition(mx)
     if (direction === 'left' && isTurn) next()
     else if (direction === 'right' && isTurn) pre()
@@ -75,13 +80,16 @@ const Swiper: FC<Props> = ({ children, selectedIndex = 0 }) => {
   const isFirst = () => children.map((item, index) => {
     if (active === children.length && index === 0)
       return <div absolute h="100%" style={{ left: children.length * width, width }} key={index} >{item}</div>
-    return <div flex-shrink-0 style={{ width }} key={index}>{item}{isAnimation.toString()}</div>
+    return <div flex-shrink-0 style={{ width }} key={index}>{item}</div>
   })
 
   return (
-    <main ref={dom} flex-1 transition-all-300 border border-red flex >
+    <>
+    <main ref={dom} transition-all-300 flex >
         {isFirst()}
     </main>
+    <Pager/>
+    </>
   )
 }
 
